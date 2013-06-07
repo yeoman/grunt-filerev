@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     var move = true;
     var filerev = grunt.filerev || {summary: {}};
 
-    this.files.forEach(function (el) {
+    grunt.util.async.forEach(this.files, function (el, next) {
       // If dest is furnished it should indicate a directory.
       if (el.dest) {
         try {
@@ -51,7 +51,8 @@ module.exports = function (grunt) {
         filerev.summary[file] = path.join(dirname, newName);
         grunt.log.writeln('✔ '.green + file + (' changed to ').grey + filerev.summary[file]);
       });
-    });
+      next();
+    }, this.async());
 
     grunt.filerev = filerev;
   });

@@ -72,7 +72,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('checkSummary', 'Check summary attribute is correctly created', function() {
-		// var assert = require('assert');
 		var assert = function(v) { if (!v) { grunt.fail.fatal('!!!!!!');}};
 		assert(grunt.filerev.summary['test/fixtures/file.png'] === 'test/tmp/file.a0539763.png');
   });
