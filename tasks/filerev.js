@@ -14,42 +14,42 @@ module.exports = function (grunt) {
     var move = true;
     var summary = {};
 
-    grunt.util._.each(this.files, function (el) {
+    this.files.forEach(function (el) {
       // If dest is furnished it should indicate a directory.
       if (el.dest) {
         try {
-            var stat = fs.lstatSync(el.dest);
-            if (stat && !stat.isDirectory()) {
-              grunt.fail.fatal('Destination for target %s is not a directory',target);
-            }
+          var stat = fs.lstatSync(el.dest);
+          if (stat && !stat.isDirectory()) {
+            grunt.fail.fatal('Destination for target %s is not a directory', target);
           }
-        catch(e) {
+        } catch (err) {
           grunt.log.writeln('Destination dir ' + el.dest + ' does not exists for target ' + target + ': creating');
           grunt.file.mkdir(el.dest);
         }
-	     // We need to copy file as we now have a dest different from the src
+        // We need to copy file as we now have a dest different from the src
         move = false;
       }
 
-      grunt.util._.each(el.src, function(f) {
-        var hash = crypto.createHash(options.algorithm).update(grunt.file.read(f), options.encoding).digest('hex');
-        var suffix = hash.slice(0, options.length);
-        var ext = path.extname(f);
-        var newName = [path.basename(f, ext), suffix, ext.slice(1)].join('.');
-        var resultPath;
+      el.src.forEach(function (file) {
         var dirname;
+        var hash = crypto.createHash(options.algorithm).update(grunt.file.read(file), options.encoding).digest('hex');
+        var suffix = hash.slice(0, options.length);
+        var ext = path.extname(file);
+        var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
+        var resultPath;
 
         if (move) {
-          dirname = path.dirname(f);
+          dirname = path.dirname(file);
           resultPath = path.resolve(dirname, newName);
-          fs.renameSync(f, resultPath);
+          fs.renameSync(file, resultPath);
         } else {
           dirname = el.dest;
           resultPath = path.resolve(dirname, newName);
-          fs.createReadStream(f).pipe(fs.createWriteStream(resultPath));
+          fs.createReadStream(file).pipe(fs.createWriteStream(resultPath));
         }
-        summary[f] = path.join(dirname, newName);
-        grunt.log.writeln('✔ '.green + f + (' changed to ').grey + summary[f]);
+
+        summary[file] = path.join(dirname, newName);
+        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + summary[file]);
       });
     });
 
