@@ -22,7 +22,7 @@ This task will revision your file based on their content. Meaning that if the co
 
 In your `Gruntfile.js`, a section named `filerev` should be added:
 
-```
+```js
 grunt.initConfig({
   filerev: {
     options: {
@@ -61,7 +61,7 @@ The number of characters of the file content hash to prefix the file name with.
 
 When not specifying a destination the (source) files will be replaced by their revved version. For example, with the following configuration:
 
-```
+```js
 filerev: {
   images: {
     src: ['img1.png', 'img2.png']
@@ -72,7 +72,7 @@ the 2 files (`img1.png` and `img2.png`) will be renamed after their revved versi
 
 If you did prefer to copy them under their new name you can add a `dest` that needs to be a directory. For example, if we want to create the revved version of the 2 image files under the `tmp` destination directory:
 
-```
+```js
 filerev: {
   images: {
     src: ['img1.png', 'img2.png'],
