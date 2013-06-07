@@ -1,4 +1,5 @@
 'use strict';
+var assert = require('assert');
 
 module.exports = function (grunt) {
   grunt.initConfig({
@@ -26,18 +27,18 @@ module.exports = function (grunt) {
       compile: {
         src: ['test/tmp/file.png']
       },
-      withconfig: {
+      withConfig: {
         options: {
           algorithm: 'sha1',
           length: 4
         },
         src: ['test/tmp/cfgfile.png']
       },
-      withdest: {
+      withDest: {
         src: ['test/fixtures/file.png'],
         dest: 'test/tmp/dest'
       },
-      withsummaryattributename: {
+      withSummaryAttributeName: {
         options: {
           summary: 'foo'
         },
@@ -71,8 +72,7 @@ module.exports = function (grunt) {
     'clean'
   ]);
 
-  grunt.registerTask('checkSummary', 'Check summary attribute is correctly created', function() {
-		var assert = function(v) { if (!v) { grunt.fail.fatal('!!!!!!');}};
-		assert(grunt.filerev.summary['test/fixtures/file.png'] === 'test/tmp/file.a0539763.png');
+  grunt.registerTask('checkSummary', 'Check that summary attribute is correctly created', function () {
+		assert.equal(grunt.filerev.summary['test/fixtures/file.png'], 'test/tmp/file.a0539763.png');
   });
 };
