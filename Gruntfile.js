@@ -38,7 +38,7 @@ module.exports = function (grunt) {
       },
       withsummary: {
         options: {
-          summary: 'tmp/rev_summary.js'
+          summary: 'test/tmp/rev_summary.js'
         },
         src: ['test/fixtures/file.png', 'test/fixtures/another.png'],
         dest: 'test/tmp'
