@@ -12,14 +12,14 @@ module.exports = function (grunt) {
 	        'test/**/*.js'
 	      ]
 	    },
-    copy: {
-      test: {
-        flatten: true,
-        expand: true,
-        src: ['test/fixtures/*.png'],
-        dest: 'test/tmp/',
-      },
-    },
+	    copy: {
+	      test: {
+	        flatten: true,
+	        expand: true,
+	        src: ['test/fixtures/*.png'],
+	        dest: 'test/tmp/',
+	      },
+	    },
 
 		filerev: {
 			compile: {
@@ -51,5 +51,5 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-simple-mocha');
 
-	grunt.registerTask('default', ['clean', 'copy', 'filerev', 'simplemocha', 'clean']);
+	grunt.registerTask('default', ['clean', 'copy', 'filerev', 'simplemocha'/*, 'clean'*/]);
 };
