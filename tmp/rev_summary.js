@@ -1,0 +1,1 @@
+{"test/fixtures/file.png":"test/tmp/file.a0539763.png","test/fixtures/another.png":"test/tmp/another.d9170849.png"}

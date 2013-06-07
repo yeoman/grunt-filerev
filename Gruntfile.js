@@ -26,14 +26,22 @@ module.exports = function (grunt) {
 				src: ['test/tmp/file.png']
 			},
 			withconfig: {
-				src: ['test/tmp/file.png']
+				options: {
+					algorithm: 'sha1',
+					length: 4
+				},
+				src: ['test/tmp/cfgfile.png']
 			},
 			withdest: {
 				src: ['test/fixtures/file.png'],
 				dest: 'test/tmp/dest'
 			},
 			withsummary: {
-				src: ['test/tmp/file.png', 'test/tmp/another.png']
+				options: {
+					summary: 'tmp/rev_summary.js'
+				},
+				src: ['test/fixtures/file.png', 'test/fixtures/another.png'],
+				dest: 'test/tmp'
 			}
 		},
 		simplemocha: {
@@ -50,6 +58,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-simple-mocha');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	grunt.registerTask('default', ['clean', 'copy', 'filerev', 'simplemocha'/*, 'clean'*/]);
 };
