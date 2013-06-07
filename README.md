@@ -2,16 +2,16 @@
 
 > Static asset revisioning through file content hash
 
-Watch out, this task is designed for Grunt 0.4 and upwards.
 
 ## Getting Started
+
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```shell
-npm install grunt-usemin --save-dev
+npm install --save-dev grunt-usemin
 ```
 
-[grunt]: http://gruntjs.com/
+[grunt]: http://gruntjs.com
 [Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
 
 ## `filerev` task
@@ -40,20 +40,23 @@ grunt.initConfig({
 ### Options
 
 #### options.encoding
-Type: `String`
-Default value: `'utf8'`
+
+Type: `String`  
+Default: `'utf8'`
 
 The encoding of the file contents.
 
 #### options.algorithm
-Type: `String`
-Default value: `'md5'`
+
+Type: `String`  
+Default: `'md5'`
 
 `algorithm` is dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha1'`, `'md5'`, `'sha256'`, `'sha512'`, etc. On recent releases, `openssl list-message-digest-algorithms` will display the available digest algorithms.
 
 #### options.length
+
 Type: `Number`
-Default value: `8`
+Default: `8`
 
 The number of characters of the file content hash to prefix the file name with.
 
@@ -79,7 +82,6 @@ filerev: {
     dest: 'tmp'
   }
 }
-
 ```
 
 ## License
