@@ -12,7 +12,7 @@
   "author": {
     "name": "Frederick Ros",
     "email": "frederick.ros@gmail.com",
-    "url": ""
+    "url": "https://github.com/sleeper"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-clean": "0.4.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-clean": "~0.4.0",
     "grunt-simple-mocha": "~0.4.0"
   },
   "peerDependencies": {
