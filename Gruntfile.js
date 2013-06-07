@@ -1,25 +1,27 @@
 'use strict';
+
 module.exports = function (grunt) {
 	grunt.initConfig({
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc'
 			},
-	      all: [
-	        'Gruntfile.js',
-	        'lib/*.js',
-	        'tasks/*.js',
-	        'test/**/*.js'
-	      ]
+			all: [
+				'Gruntfile.js',
+				'lib/*.js',
+				'tasks/*.js',
+				'test/**/*.js'
+			]
+		},
+
+		copy: {
+	    test: {
+	      flatten: true,
+	      expand: true,
+	      src: ['test/fixtures/*.png'],
+	      dest: 'test/tmp/',
 	    },
-	    copy: {
-	      test: {
-	        flatten: true,
-	        expand: true,
-	        src: ['test/fixtures/*.png'],
-	        dest: 'test/tmp/',
-	      },
-	    },
+	  },
 
 		filerev: {
 			compile: {
@@ -60,5 +62,5 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-simple-mocha');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask('default', ['clean', 'copy', 'filerev', 'simplemocha'/*, 'clean'*/]);
+	grunt.registerTask('default', ['jshint', 'clean', 'copy', 'filerev', 'simplemocha'/*, 'clean'*/]);
 };
