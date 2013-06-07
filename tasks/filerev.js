@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     });
     var target = this.target;
     var move = true;
-    var summary = {};
+    var filerev = grunt.filerev || {summary: {}};
 
     this.files.forEach(function (el) {
       // If dest is furnished it should indicate a directory.
@@ -48,13 +48,11 @@ module.exports = function (grunt) {
           fs.createReadStream(file).pipe(fs.createWriteStream(resultPath));
         }
 
-        summary[file] = path.join(dirname, newName);
-        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + summary[file]);
+        filerev.summary[file] = path.join(dirname, newName);
+        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + filerev.summary[file]);
       });
     });
 
-    if (options.summary) {
-      grunt.file.write(options.summary, JSON.stringify(summary));
-    }
+    grunt.filerev = filerev;
   });
 };

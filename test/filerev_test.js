@@ -1,7 +1,6 @@
 'use strict';
 var fs = require('fs');
 var assert = require('assert');
-var grunt = require('grunt');
 
 describe('filerev', function () {
   it('should revision files based on content', function () {
@@ -20,11 +19,5 @@ describe('filerev', function () {
     var original = fs.statSync('test/fixtures/file.png').size;
     var revisioned= fs.statSync('test/tmp/dest/file.a0539763.png').size;
     assert(revisioned === original);
-  });
-
-  it('should allow to create a summary file', function () {
-    assert(grunt.file.exists('test/tmp/rev_summary.js'));
-    var summary = grunt.file.readJSON('test/tmp/rev_summary.js');
-    assert(summary['test/fixtures/file.png'] === 'test/tmp/file.a0539763.png');
   });
 });

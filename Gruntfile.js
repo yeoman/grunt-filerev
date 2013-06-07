@@ -37,9 +37,9 @@ module.exports = function (grunt) {
         src: ['test/fixtures/file.png'],
         dest: 'test/tmp/dest'
       },
-      withsummary: {
+      withsummaryattributename: {
         options: {
-          summary: 'test/tmp/rev_summary.js'
+          summary: 'foo'
         },
         src: ['test/fixtures/file.png', 'test/fixtures/another.png'],
         dest: 'test/tmp'
@@ -66,7 +66,14 @@ module.exports = function (grunt) {
     'clean',
     'copy',
     'filerev',
+    'checkSummary',
     'simplemocha',
     'clean'
   ]);
+
+  grunt.registerTask('checkSummary', 'Check summary attribute is correctly created', function() {
+		// var assert = require('assert');
+		var assert = function(v) { if (!v) { grunt.fail.fatal('!!!!!!');}};
+		assert(grunt.filerev.summary['test/fixtures/file.png'] === 'test/tmp/file.a0539763.png');
+  });
 };
