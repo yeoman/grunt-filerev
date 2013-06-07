@@ -5,6 +5,7 @@
   "keywords": [
     "gruntplugin",
     "optimize",
+    "rev",
     "minify"
   ],
   "homepage": "https://github.com/yeoman/grunt-filerev",
@@ -20,9 +21,6 @@
   },
   "scripts": {
     "test": "grunt"
-  },
-  "dependencies": {
-    "filesize": "~1.8.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
