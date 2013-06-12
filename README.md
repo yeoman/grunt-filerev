@@ -42,21 +42,21 @@ grunt.initConfig({
 
 #### options.encoding
 
-Type: `String`  
+Type: `String`
 Default: `'utf8'`
 
 The file encoding.
 
 #### options.algorithm
 
-Type: `String`  
+Type: `String`
 Default: `'md5'`
 
 `algorithm` is dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha1'`, `'md5'`, `'sha256'`, `'sha512'`, etc. On recent releases, `openssl list-message-digest-algorithms` will display the available digest algorithms.
 
 #### options.length
 
-Type: `Number`  
+Type: `Number`
 Default: `8`
 
 The number of characters of the file hash to prefix the file name with.
@@ -73,9 +73,32 @@ filerev: {
   }
 }
 ```
-#### options.summary
+#### Summary
 
+The task keeps track of all files created and its sources in a summary that is
+exposed through the `grunt.filerev.summary` object. It can be used to replace
+references to the revved files or debugging purposes. The key of the object is
+the original filename, the value is the new revved path.
 
+For a configuration like this
+
+```js
+filerev: {
+  images: {
+    src: ['img1.png', 'img2.png'],
+    dest: 'tmp'
+  }
+}
+```
+
+the content `grunt.filerev.summary` could look like that:
+
+```js
+{
+  'img1.png': 'tmp/img1.59bcc3ad.png',
+  'img2.png': 'tmp/img2.060b1aa6.png'
+}
+```
 
 ## License
 
