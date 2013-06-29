@@ -8,7 +8,7 @@
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```shell
-npm install --save-dev grunt-usemin
+npm install --save-dev grunt-filerev
 ```
 
 [grunt]: http://gruntjs.com
