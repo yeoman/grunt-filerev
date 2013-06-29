@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         } else {
           dirname = el.dest;
           resultPath = path.resolve(dirname, newName);
-          fs.createReadStream(file).pipe(fs.createWriteStream(resultPath));
+          grunt.file.copy(file, resultPath);
         }
 
         filerev.summary[file] = path.join(dirname, newName);
