@@ -1,5 +1,6 @@
 'use strict';
 var assert = require('assert');
+var path = require('path');
 
 module.exports = function (grunt) {
   grunt.initConfig({
@@ -73,6 +74,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('checkSummary', 'Check that summary attribute is correctly created', function () {
-		assert.equal(grunt.filerev.summary['test/fixtures/file.png'], 'test/tmp/file.a0539763.png');
+    var src = path.normalize('test/fixtures/file.png');
+    var expected = path.normalize('test/tmp/file.a0539763.png');
+    assert.equal(grunt.filerev.summary[src], expected);
   });
 };
