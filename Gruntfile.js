@@ -21,8 +21,8 @@ module.exports = function (grunt) {
         flatten: true,
         expand: true,
         src: ['test/fixtures/*.png'],
-        dest: 'test/tmp/',
-      },
+        dest: 'test/tmp/'
+      }
     },
     filerev: {
       compile: {
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
     },
     clean: {
       test: ['test/tmp']
-    },
+    }
   });
 
   grunt.loadTasks('tasks');
