@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         }
 
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
-        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + filerev.summary[file]);
+        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + newName);
       });
       next();
     }, this.async());
