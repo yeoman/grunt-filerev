@@ -2,6 +2,7 @@
 var crypto = require('crypto');
 var path = require('path');
 var fs = require('fs');
+var chalk = require('chalk');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('filerev', 'File revisioning based on content hashing', function () {
@@ -49,7 +50,7 @@ module.exports = function (grunt) {
         }
 
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
-        grunt.log.writeln('✔ '.green + file + (' changed to ').grey + newName);
+        grunt.log.writeln(chalk.green('✔ ') + file + chalk.gray(' changed to ') + newName);
       });
       next();
     }, this.async());
