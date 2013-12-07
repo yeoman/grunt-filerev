@@ -3,6 +3,7 @@ var crypto = require('crypto');
 var path = require('path');
 var fs = require('fs');
 var chalk = require('chalk');
+var eachAsync = require('each-async');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('filerev', 'File revisioning based on content hashing', function () {
@@ -15,8 +16,8 @@ module.exports = function (grunt) {
     var move = true;
     var filerev = grunt.filerev || {summary: {}};
 
-    grunt.util.async.forEach(this.files, function (el, next) {
-      // If dest is furnished it should indicate a directory.
+    eachAsync(this.files, function (el, i, next) {
+      // If dest is furnished it should indicate a directory
       if (el.dest) {
         try {
           var stat = fs.lstatSync(el.dest);
