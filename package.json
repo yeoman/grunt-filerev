@@ -23,11 +23,11 @@
     "test": "grunt"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
     "grunt-contrib-copy": "~0.4.0",
-    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-simple-mocha": "~0.4.0",
-    "grunt-contrib-jshint": "~0.4.1"
+    "grunt-contrib-jshint": "~0.7.2"
   },
   "peerDependencies": {
     "grunt": "~0.4.0"
