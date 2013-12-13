@@ -19,6 +19,11 @@ module.exports = function (grunt) {
     eachAsync(this.files, function (el, i, next) {
       // If dest is furnished it should indicate a directory
       if (el.dest) {
+        // When globbing is used, el.dest contains basename, we remove it
+        if(el.orig.expand) {
+          el.dest = path.dirname(el.dest);
+        }
+
         try {
           var stat = fs.lstatSync(el.dest);
           if (stat && !stat.isDirectory()) {

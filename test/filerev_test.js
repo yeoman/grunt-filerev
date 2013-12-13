@@ -20,4 +20,10 @@ describe('filerev', function () {
     var revisioned= fs.statSync('test/tmp/dest/file.a0539763.png').size;
     assert(revisioned === original);
   });
+
+  it('should allow sources defined with expand', function () {
+    var original = fs.statSync('test/fixtures/file.png').size;
+    var revisioned= fs.statSync('test/tmp/expand/file.a0539763.png').size;
+    assert(revisioned === original);
+  });
 });
