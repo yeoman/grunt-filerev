@@ -6,10 +6,10 @@
     "gruntplugin",
     "optimize",
     "rev",
-    "minify"
+    "revision",
+    "minify",
+    "assets"
   ],
-  "homepage": "https://github.com/yeoman/grunt-filerev",
-  "bugs": "https://github.com/yeoman/grunt-filerev/issues",
   "author": {
     "name": "Frederick Ros",
     "email": "frederick.ros@gmail.com",
@@ -23,7 +23,7 @@
     "test": "grunt"
   },
   "dependencies": {
-    "chalk": "~0.3.0",
+    "chalk": "~0.4.0",
     "each-async": "~0.1.0"
   },
   "devDependencies": {
@@ -34,10 +34,10 @@
     "grunt-contrib-jshint": "~0.7.2"
   },
   "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.0"
   },
   "licenses": {
     "type": "BSD"
