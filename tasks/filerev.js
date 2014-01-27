@@ -13,10 +13,11 @@ module.exports = function (grunt) {
       length: 8
     });
     var target = this.target;
-    var move = true;
     var filerev = grunt.filerev || {summary: {}};
 
     eachAsync(this.files, function (el, i, next) {
+      var move = true;
+      
       // If dest is furnished it should indicate a directory
       if (el.dest) {
         // When globbing is used, el.dest contains basename, we remove it
