@@ -1,4 +1,4 @@
-# grunt-filerev [![Build Status](https://secure.travis-ci.org/yeoman/grunt-filerev.svg?branch=master)](http://travis-ci.org/yeoman/grunt-filerev) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-filerev [![Build Status](https://secure.travis-ci.org/yeoman/grunt-filerev.svg?branch=master)](http://travis-ci.org/yeoman/grunt-filerev)
 
 > Static asset revisioning through file content hash
 
