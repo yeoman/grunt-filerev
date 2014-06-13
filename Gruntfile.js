@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       withExpand: {
         expand: true,
         cwd: 'test/fixtures',
-        src: ['*.png'],
+        src: ['*'],
         dest: 'test/tmp/expand'
       },
       withSummaryAttributeName: {
