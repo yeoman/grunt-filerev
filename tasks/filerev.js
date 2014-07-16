@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         try {
           var stat = fs.lstatSync(el.dest);
           if (stat && !stat.isDirectory()) {
-            grunt.fail.fatal('Destination for target %s is not a directory', target);
+            grunt.fail.fatal('Destination ' + el.dest  + ' for target ' + target + ' is not a directory');
           }
         } catch (err) {
           grunt.log.writeln('Destination dir ' + el.dest + ' does not exists for target ' + target + ': creating');
