@@ -7,8 +7,8 @@
 
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
-```shell
-npm install --save-dev grunt-filerev
+```sh
+$ npm install --save-dev grunt-filerev
 ```
 
 [grunt]: http://gruntjs.com
@@ -42,21 +42,21 @@ grunt.initConfig({
 
 #### options.encoding
 
-Type: `String`  
+Type: `string`  
 Default: `'utf8'`
 
 The file encoding.
 
 #### options.algorithm
 
-Type: `String`  
+Type: `string`  
 Default: `'md5'`
 
 `algorithm` is dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha1'`, `'md5'`, `'sha256'`, `'sha512'`, etc. On recent releases, `openssl list-message-digest-algorithms` will display the available digest algorithms.
 
 #### options.length
 
-Type: `Number`  
+Type: `number`  
 Default: `8`
 
 The number of characters of the file hash to prefix the file name with.

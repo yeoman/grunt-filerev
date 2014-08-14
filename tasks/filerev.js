@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       // If dest is furnished it should indicate a directory
       if (el.dest) {
         // When globbing is used, el.dest contains basename, we remove it
-        if(el.orig.expand) {
+        if (el.orig.expand) {
           el.dest = path.dirname(el.dest);
         }
 
@@ -42,6 +42,7 @@ module.exports = function (grunt) {
         if (grunt.file.isDir(file)) {
           return;
         }
+
         var dirname;
         var hash = crypto.createHash(options.algorithm).update(grunt.file.read(file), options.encoding).digest('hex');
         var suffix = hash.slice(0, options.length);
@@ -62,6 +63,7 @@ module.exports = function (grunt) {
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
         grunt.log.writeln(chalk.green('✔ ') + file + chalk.gray(' changed to ') + newName);
       });
+
       next();
     }, this.async());
 
