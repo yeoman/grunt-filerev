@@ -1,6 +1,6 @@
 {
   "name": "grunt-filerev",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Asset revisioning by using file content hashing",
   "keywords": [
     "gruntplugin",
