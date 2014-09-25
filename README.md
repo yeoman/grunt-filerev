@@ -26,7 +26,6 @@ This task will revision your files based on its contents. You should then set th
 grunt.initConfig({
   filerev: {
     options: {
-      encoding: 'utf8',
       algorithm: 'md5',
       length: 8
     },
@@ -39,13 +38,6 @@ grunt.initConfig({
 
 
 ### Options
-
-#### options.encoding
-
-Type: `string`  
-Default: `'utf8'`
-
-The file encoding.
 
 #### options.algorithm
 

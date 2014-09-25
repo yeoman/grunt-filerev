@@ -8,7 +8,6 @@ var eachAsync = require('each-async');
 module.exports = function (grunt) {
   grunt.registerMultiTask('filerev', 'File revisioning based on content hashing', function () {
     var options = this.options({
-      encoding: 'utf8',
       algorithm: 'md5',
       length: 8
     });
@@ -44,9 +43,7 @@ module.exports = function (grunt) {
         }
 
         var dirname;
-        var hash = crypto.createHash(options.algorithm).update(grunt.file.read(file, {
-          encoding: options.encoding
-        }), options.encoding).digest('hex');
+        var hash = crypto.createHash(options.algorithm).update(fs.readFileSync(file)).digest('hex');
         var suffix = hash.slice(0, options.length);
         var ext = path.extname(file);
         var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');

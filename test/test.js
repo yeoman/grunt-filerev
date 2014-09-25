@@ -3,8 +3,8 @@ var fs = require('fs');
 var assert = require('assert');
 
 var hashes = {
-  'test/fixtures/file.png' : 'test/tmp/file.d01d8f48.png',
-  'test/fixtures/cfgfile.png' : 'test/tmp/cfgfile.46a6.png'
+  'test/fixtures/file.png' : 'test/tmp/file.26365248.png',
+  'test/fixtures/cfgfile.png' : 'test/tmp/cfgfile.da63.png'
 };
 
 it('should revision files based on content', function () {
