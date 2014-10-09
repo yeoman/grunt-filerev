@@ -65,6 +65,7 @@ filerev: {
   }
 }
 ```
+
 #### Summary
 
 The task keeps track of all files created and its sources in a summary that is
@@ -91,6 +92,12 @@ the content `grunt.filerev.summary` could look like that:
   'img2.png': 'tmp/img2.060b1aa6.png'
 }
 ```
+
+#### Source Maps
+
+The task will ensure that any source map for `.css` or `.js` file is revisioned with the same revision as the source file.
+
+For example, `js/main.js` revisioned to `js/main.9d713a59.js` will also have `js/main.js.map` revisioned to the same hash `js/main.9d713a59.js.map`.
 
 ## License
 

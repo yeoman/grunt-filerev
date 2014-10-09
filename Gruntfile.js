@@ -51,6 +51,12 @@ module.exports = function (grunt) {
         },
         src: ['test/fixtures/file.png', 'test/fixtures/another.png'],
         dest: 'test/tmp'
+      },
+      withSourceMaps: {
+        expand: true,
+        cwd: 'test/fixtures',
+        src: ['*.js'],
+        dest: 'test/tmp/withSourceMaps'
       }
     },
     simplemocha: {

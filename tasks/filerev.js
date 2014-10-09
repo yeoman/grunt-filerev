@@ -59,8 +59,28 @@ module.exports = function (grunt) {
           grunt.file.copy(file, resultPath);
         }
 
+        // Source maps
+        var sourceMap = false;
+        if (ext === '.js' || ext === '.css') {
+            var map = file + '.map';
+            resultPath += '.map';
+            if (grunt.file.exists(map)) {
+                if (move) {
+                    fs.renameSync(map, resultPath);
+                } else {
+                    grunt.file.copy(map, resultPath);
+                }
+                sourceMap = true;
+           }
+        }
+
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
         grunt.log.writeln(chalk.green('✔ ') + file + chalk.gray(' changed to ') + newName);
+        if (sourceMap) {
+            filerev.summary[path.normalize(file + '.map')] = path.join(dirname, newName + '.map');
+            grunt.log.writeln(chalk.green('✔ ') + file + '.map' + chalk.gray(' changed to ') + newName + '.map');
+        }
+
       });
 
       next();
