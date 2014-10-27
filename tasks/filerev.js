@@ -82,7 +82,10 @@ module.exports = function (grunt) {
         }
 
       });
-      grunt.log.writeln('Revved ' + chalk.cyan(el.src.length) + ' files');
+
+      grunt.log.writeln('Revved ' + chalk.cyan(el.src.length) + ' ' +
+        el.src.length === 1 ? 'file' : 'files'
+      );
 
       next();
     }, this.async());
