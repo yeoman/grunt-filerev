@@ -30,7 +30,7 @@ module.exports = function (grunt) {
             grunt.fail.fatal('Destination ' + el.dest  + ' for target ' + target + ' is not a directory');
           }
         } catch (err) {
-          grunt.log.writeln('Destination dir ' + el.dest + ' does not exists for target ' + target + ': creating');
+          grunt.verbose.writeln('Destination dir ' + el.dest + ' does not exists for target ' + target + ': creating');
           grunt.file.mkdir(el.dest);
         }
         // We need to copy file as we now have a dest different from the src
@@ -75,13 +75,14 @@ module.exports = function (grunt) {
         }
 
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
-        grunt.log.writeln(chalk.green('✔ ') + file + chalk.gray(' changed to ') + newName);
+        grunt.verbose.writeln(chalk.green('✔ ') + file + chalk.gray(' changed to ') + newName);
         if (sourceMap) {
             filerev.summary[path.normalize(file + '.map')] = path.join(dirname, newName + '.map');
-            grunt.log.writeln(chalk.green('✔ ') + file + '.map' + chalk.gray(' changed to ') + newName + '.map');
+            grunt.verbose.writeln(chalk.green('✔ ') + file + '.map' + chalk.gray(' changed to ') + newName + '.map');
         }
 
       });
+      grunt.log.writeln('Revved ' + chalk.cyan(el.src.length) + ' files');
 
       next();
     }, this.async());
