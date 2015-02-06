@@ -46,7 +46,18 @@ module.exports = function (grunt) {
         var hash = crypto.createHash(options.algorithm).update(fs.readFileSync(file)).digest('hex');
         var suffix = hash.slice(0, options.length);
         var ext = path.extname(file);
-        var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
+        var newName;
+
+        if (typeof options.process === 'function') {
+          newName = options.process(path.basename(file, ext), suffix, ext.slice(1));
+        } else {
+          if (options.process) {
+            grunt.log.error('options.process must be a function; ignoring');
+          }
+
+          newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
+        }
+
         var resultPath;
 
         if (move) {
