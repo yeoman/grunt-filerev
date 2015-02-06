@@ -47,8 +47,8 @@ module.exports = function (grunt) {
       },
       withFilenameProcessing: {
         options: {
-          process: function(name, hash, extension) {
-            return name + '-processed-' + hash + '.' + extension;
+          process: function (name, hash, ext) {
+            return name + '-processed-' + hash + '.' + ext;
           }
         },
         src: ['test/fixtures/another.png'],
