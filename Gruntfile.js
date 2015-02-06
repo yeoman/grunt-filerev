@@ -45,6 +45,15 @@ module.exports = function (grunt) {
         src: ['*'],
         dest: 'test/tmp/expand'
       },
+      withFilenameProcessing: {
+        options: {
+          process: function(name, hash, extension) {
+            return name + '-processed-' + hash + '.' + extension;
+          }
+        },
+        src: ['test/fixtures/another.png'],
+        dest: 'test/tmp'
+      },
       withSummaryAttributeName: {
         options: {
           summary: 'foo'

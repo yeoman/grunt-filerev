@@ -7,7 +7,8 @@ var hashes = {
   'test/fixtures/cfgfile.png' : 'test/tmp/cfgfile.da63.png',
   'test/fixtures/math.js' : 'test/tmp/withSourceMaps/math.2f56179e.js',
   'test/fixtures/math.js.map' : 'test/tmp/withSourceMaps/math.2f56179e.js.map',
-  'test/fixtures/physics.js' : 'test/tmp/withSourceMaps/physics.14a0a482.js'
+  'test/fixtures/physics.js' : 'test/tmp/withSourceMaps/physics.14a0a482.js',
+  'test/fixtures/another.png' : 'test/tmp/another-processed-92279d3f.png'
 };
 
 it('should revision files based on content', function () {
@@ -52,3 +53,9 @@ it('should revision .js file ok without any .map', function () {
   assert(revisioned === original);
 });
 
+it('should allow a filename processing function', function () {
+  var file = 'test/fixtures/another.png';
+  var original = fs.statSync(file).size;
+  var revisioned = fs.statSync(hashes[file]).size;
+  assert(revisioned === original);
+});
