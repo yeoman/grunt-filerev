@@ -74,13 +74,18 @@ module.exports = function (grunt) {
         var sourceMap = false;
         if (ext === '.js' || ext === '.css') {
           var map = file + '.map';
-          resultPath += '.map';
+          var resultPathMap = resultPath + '.map';
           if (grunt.file.exists(map)) {
             if (move) {
-              fs.renameSync(map, resultPath);
+              fs.renameSync(map, resultPathMap);
             } else {
-              grunt.file.copy(map, resultPath);
+              grunt.file.copy(map, resultPathMap);
             }
+
+            // rewrite the sourceMappingURL in files
+            var fileContents = grunt.file.read(resultPath, {encoding: 'utf8'});
+            var newSrcMap = fileContents.replace('//# sourceMappingURL=' + path.basename(file) + '.map', '//# sourceMappingURL=' + path.basename(resultPathMap));
+            grunt.file.write(resultPath, newSrcMap, {encoding: 'utf8'});
             sourceMap = true;
           }
         }
