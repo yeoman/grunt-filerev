@@ -7,12 +7,12 @@ var eachAsync = require('each-async');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('filerev', 'File revisioning based on content hashing', function () {
+    var target = this.target;
+    var filerev = grunt.filerev || {summary: {}};
     var options = this.options({
       algorithm: 'md5',
       length: 8
     });
-    var target = this.target;
-    var filerev = grunt.filerev || {summary: {}};
 
     eachAsync(this.files, function (el, i, next) {
       var move = true;
@@ -26,6 +26,7 @@ module.exports = function (grunt) {
 
         try {
           var stat = fs.lstatSync(el.dest);
+
           if (stat && !stat.isDirectory()) {
             grunt.fail.fatal('Destination ' + el.dest  + ' for target ' + target + ' is not a directory');
           }
@@ -72,9 +73,11 @@ module.exports = function (grunt) {
 
         // Source maps
         var sourceMap = false;
+
         if (ext === '.js' || ext === '.css') {
           var map = file + '.map';
           var resultPathMap = resultPath + '.map';
+
           if (grunt.file.exists(map)) {
             if (move) {
               fs.renameSync(map, resultPathMap);
@@ -92,11 +95,11 @@ module.exports = function (grunt) {
 
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
         grunt.verbose.writeln(chalk.green('✔ ') + file + chalk.gray(' changed to ') + newName);
+
         if (sourceMap) {
           filerev.summary[path.normalize(file + '.map')] = path.join(dirname, newName + '.map');
           grunt.verbose.writeln(chalk.green('✔ ') + file + '.map' + chalk.gray(' changed to ') + newName + '.map');
         }
-
       });
 
       grunt.log.writeln('Revved ' + chalk.cyan(el.src.length) + ' ' +
