@@ -1,0 +1,2 @@
+'use strict';window.sqrt = Math.sqrt;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5saW5lLmpzIiwic291cmNlcyI6WyJpbmxpbmUuanMiXSwibmFtZXMiOlsid2luZG93Iiwic3FydCIsIk1hdGgiXSwibWFwcGluZ3MiOiJBQUFBLFlBQ0FBLFFBQU9DLEtBQU9DLEtBQUtEIn0=
