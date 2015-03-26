@@ -74,7 +74,7 @@ module.exports = function (grunt) {
       withSourceMaps: {
         expand: true,
         cwd: 'test/fixtures',
-        src: ['*.js'],
+        src: ['*.js', '*.css'],
         dest: 'test/tmp/withSourceMaps'
       }
     },
