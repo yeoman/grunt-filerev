@@ -91,10 +91,13 @@ module.exports = function (grunt) {
             // use regex that matches single-line and multi-line sourcemap urls
             // note: this will ignore inline base64-encoded sourcemaps
             var matches = convert.mapFileCommentRegex.exec(fileContents);
-            var sourceMapFile = matches[1] || matches[2]; // 1st is single line, 2nd is multiline
-            var newSrcMap = fileContents.replace(sourceMapFile, path.basename(resultPathMap));
-            grunt.file.write(resultPath, newSrcMap, {encoding: 'utf8'});
-            sourceMap = true;
+
+            if (matches) {
+              var sourceMapFile = matches[1] || matches[2]; // 1st is single line, 2nd is multiline
+              var newSrcMap = fileContents.replace(sourceMapFile, path.basename(resultPathMap));
+              grunt.file.write(resultPath, newSrcMap, {encoding: 'utf8'});
+              sourceMap = true;
+            }
           }
         }
 
