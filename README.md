@@ -32,7 +32,7 @@ grunt.initConfig({
     images: {
       src: 'img/**/*.{jpg,jpeg,gif,png,webp}'
     }
-  },
+  }
 });
 ```
 
