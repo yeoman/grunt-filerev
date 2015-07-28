@@ -59,7 +59,7 @@ Type: `function`
 Default: `null`  
 Returns: `string`
 
-A function to process the the revised file name and return back the new file name.
+A function to process the revised file name and return back the new file name.
 
 ##### basename
 
