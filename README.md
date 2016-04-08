@@ -7,7 +7,7 @@
 
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
-```sh
+```
 $ npm install --save-dev grunt-filerev
 ```
 
@@ -39,33 +39,33 @@ grunt.initConfig({
 
 ### Options
 
-#### options.algorithm
+#### algorithm
 
-Type: `string`  
+Type: `string`<br>
 Default: `'md5'`
 
 `algorithm` is dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha1'`, `'md5'`, `'sha256'`, `'sha512'`, etc. On recent releases, `openssl list-message-digest-algorithms` will display the available digest algorithms.
 
-#### options.length
+#### length
 
-Type: `number`  
+Type: `number`<br>
 Default: `8`
 
-The number of characters of the file hash to prefix the file name with.
+Number of characters of the file hash to prefix the file name with.
 
-#### options.process(basename, name, extension)
+#### process(basename, name, extension)
 
-Type: `function`  
-Default: `null`  
+Type: `function`<br>
+Default: `null`<br>
 Returns: `string`
 
-A function to process the revised file name and return back the new file name.
+Function to process the revised file name and return back the new file name.
 
 ##### basename
 
 Type: `string`
 
-The basename of the file.
+Basename of the file.
 
 ##### name
 
@@ -124,6 +124,7 @@ the content `grunt.filerev.summary` could look like that:
 The task will ensure that any source map for `.css` or `.js` file is revisioned with the same revision as the source file.
 
 For example, `js/main.js` revisioned to `js/main.9d713a59.js` will also have `js/main.js.map` revisioned to the same hash `js/main.9d713a59.js.map`.
+
 
 ## License
 

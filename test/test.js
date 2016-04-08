@@ -1,18 +1,19 @@
 'use strict';
+/* eslint-env mocha */
 var fs = require('fs');
 var assert = require('assert');
 
 var hashes = {
-  'test/fixtures/file.png' : 'test/tmp/file.26365248.png',
-  'test/fixtures/cfgfile.png' : 'test/tmp/cfgfile.da63.png',
-  'test/fixtures/math.js' : 'test/tmp/withSourceMaps/math.6272e937.js',
-  'test/fixtures/math.js.map' : 'test/tmp/withSourceMaps/math.6272e937.js.map',
-  'test/fixtures/physics.js' : 'test/tmp/withSourceMaps/physics.28cb15fd.js',
-  'test/fixtures/styles.css' : 'test/tmp/withSourceMaps/styles.a6aa2292.css',
-  'test/fixtures/styles.css.map' : 'test/tmp/withSourceMaps/styles.a6aa2292.css.map',
-  'test/fixtures/more-styles.css' : 'test/tmp/withSourceMaps/more-styles.dce8e0e5.css',
-  'test/fixtures/inline.js' : 'test/tmp/withSourceMaps/inline.8b435ef2.js',
-  'test/fixtures/another.png' : 'test/tmp/another-processed-92279d3f.png'
+  'test/fixtures/file.png': 'test/tmp/file.26365248.png',
+  'test/fixtures/cfgfile.png': 'test/tmp/cfgfile.da63.png',
+  'test/fixtures/math.js': 'test/tmp/withSourceMaps/math.6272e937.js',
+  'test/fixtures/math.js.map': 'test/tmp/withSourceMaps/math.6272e937.js.map',
+  'test/fixtures/physics.js': 'test/tmp/withSourceMaps/physics.28cb15fd.js',
+  'test/fixtures/styles.css': 'test/tmp/withSourceMaps/styles.a6aa2292.css',
+  'test/fixtures/styles.css.map': 'test/tmp/withSourceMaps/styles.a6aa2292.css.map',
+  'test/fixtures/more-styles.css': 'test/tmp/withSourceMaps/more-styles.dce8e0e5.css',
+  'test/fixtures/inline.js': 'test/tmp/withSourceMaps/inline.8b435ef2.js',
+  'test/fixtures/another.png': 'test/tmp/another-processed-92279d3f.png'
 };
 
 it('should revision files based on content', function () {

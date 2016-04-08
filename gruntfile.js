@@ -4,28 +4,6 @@ var path = require('path');
 
 module.exports = function (grunt) {
   grunt.initConfig({
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      all: [
-        'Gruntfile.js',
-        'lib/*.js',
-        'tasks/*.js',
-        'test/**/*.js',
-        '!test/tmp/*'
-      ]
-    },
-
-    jscs: {
-      options: {
-        config: '.jscsrc'
-      },
-      all: {
-        src: ['<%= jshint.all %>']
-      }
-    },
-
     copy: {
       test: {
         flatten: true,
@@ -92,12 +70,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-simple-mocha');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-jscs');
 
   grunt.registerTask('default', [
-    'jshint',
-    'jscs',
     'clean',
     'copy',
     'filerev',
